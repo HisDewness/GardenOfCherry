@@ -1,0 +1,133 @@
+.accordion {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  font-family: 'Arial', sans-serif;
+}
+
+.accordion__toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.accordion__toggle:hover:not(:disabled) {
+  background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+  border-color: #008cba;
+  box-shadow: 0 4px 20px rgba(0, 140, 186, 0.3);
+}
+
+.accordion__toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.accordion__toggle--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-color: transparent;
+}
+
+.accordion__icon {
+  font-size: 18px;
+}
+
+.accordion__label {
+  min-width: 60px;
+}
+
+.accordion__arrow {
+  font-size: 10px;
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+}
+
+.accordion__arrow--open {
+  transform: rotate(180deg);
+}
+
+.accordion__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border: 1px solid #3a3a3a;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.accordion__item:hover {
+  background: rgba(0, 140, 186, 0.2);
+  color: #fff;
+}
+
+.accordion__item--active {
+  background: rgba(0, 140, 186, 0.3);
+  color: #008cba;
+}
+
+.accordion__item-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.accordion__item-label {
+  flex: 1;
+}
+
+.accordion__hint {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  font-size: 11px;
+  color: #888;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+.accordion--disabled .accordion__toggle {
+  background: linear-gradient(145deg, #222, #1a1a1a);
+}
